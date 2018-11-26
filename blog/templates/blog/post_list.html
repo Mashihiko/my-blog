@@ -1,14 +1,24 @@
+
 {% load static %}
 <html>
     <head lang="ja">
         <title>Django Girls blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+　　    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
         <div class="page-header">
-            <h1><a href="/"  style="text-decoration:none;">高校二年生が書くPythonレポート</a></h1>
+            <h1><a href="/"  style="text-decoration:none;">Django Boys Blog</a></h1>
+        </div>
+        <div>
+        <ul id="nav"   style="text-decoration:none;" >
+             <li><a href="#" >記事一覧</a></li>
+             <li><a href="#">人気ランキング</a></li>
+             <li><a href="#">記事の編集</a></li>
+             <li><a href="#">このサイトについて</a></li>
+            </ul>
+        </div>
         </div>
 
         {% for post in posts %}
@@ -20,3 +30,39 @@
         {% endfor %}
     </body>
 </html>
+<!--
+
+{% load static %}
+<html>
+    <head lang="ja">
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/"  style="text-decoration:none;">Django Boys Blog</a></h1>
+        </div>
+
+        <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+
+-->
