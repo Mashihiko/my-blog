@@ -1,10 +1,15 @@
-body{
-    margin: 0;
+* {
+
+margin: 0px;
+
+padding: 0px;
+
 }
+
 
 .page-header {
     background-color: rgb(248, 248, 10);
-    font-family: "impact";
+    font-family: "impact",  cursive;
     padding: 30;
     margin: 0px;
     text-align: center;
@@ -48,12 +53,17 @@ h1 a{
 }
 
 h2 a{
- font-size: 30px;
+ font-size: 36px;
  color: black;
+ font-family: "Lobster", cursive;
 }
 
 p{
  word-break: break-all;
+}
+
+#text{
+font-size: 18px;
 }
 
 
