@@ -1,17 +1,9 @@
-* {
-
-margin: 0px;
-
-padding: 0px;
-
-}
-
-
 .page-header {
     background-color: rgb(248, 248, 10);
     font-family: "impact",  cursive;
-    padding: 30;
-    margin: 0px;
+    padding: 20;
+    top:0;
+    margin: 0;
     text-align: center;
 }
 
@@ -43,13 +35,41 @@ h1 a{
  text-decoration:none;
 }
 
+.fixed{
+  top: 0;
+  left: 0;
+  margin:0;
+  width: 100%;
+  position: fixed;
+}
+
+.fixed.transform{
+ padding: 20px;
+}
+
+
+.post-detail
+{ margin-top:50px;
+   margin-bottom: 50px;
+   padding-bottom:50px;
+   width: 60%;
+   margin-left:40px;
+}
+
 
 .post {
-
-   margin-top:50px;
+  margin-top:50px;
    margin-bottom: 50px;
-   padding-left:40px;
-   width:60%;
+   padding-bottom:50px;
+   width: 60%;
+   margin-left:40px;
+   border-bottom: dashed 5px gray;
+}
+.post:first-child{
+  margin-top:200px;
+}
+.post-detail:first-child{
+  margin-top:200px;
 }
 
 h2 a{
@@ -57,6 +77,8 @@ h2 a{
  color: black;
  font-family: "Lobster", cursive;
 }
+
+
 
 p{
  word-break: break-all;
@@ -67,7 +89,93 @@ font-size: 18px;
 }
 
 
+.post-form textarea, .post-form input {
+    width: 60%;
+   
+}
+
+.post-form{
+padding-left:40px;
+margin-top:190px;
+}
+
+#new_title{
+margin-top:60px;
+padding-left:40px;
+}
+
+
+#plus-botton{
+ font-size:80px;
+ position: fixed;
+ bottom:80px;
+ right:120px;
+ color:black;
+
+}
+.glyphicon-plus-sign{
+ color:black;
+}
+div.post:first-child{
+  margin-top:200px;
+}
+
+.post-detail{
+  margin-top:200px;
+}
+
+#trash_check{
+ color:red;
+
+}
+
+#hide_block{
+ visibility:hidden;
+}
+
+#yes_botton, #no_botton, #home_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+    margin:15px;
+}
+#yes_botton:active, #no_botton:active, #home_btn:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+
+#pb_date, #detail_title, #detail_text{
+ margin-top:30px;
+}
+
+.glyphicon-trash, .glyphicon-pencil, .btn-default{
+ margin:10px;
+}
+
+
+
 /*
+a span{
+bottom:0;
+right: 0;
+}
+
+.glyphicon-plus-sign{
+ font-size:80px;
+ position: fixed;
+ bottom:50px;
+ right: 100px;
+ color:black;
+
+}
+
+
 #nav {
   list-style: none;
   overflow: hidden;

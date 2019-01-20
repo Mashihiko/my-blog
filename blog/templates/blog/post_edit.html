@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <form method="POST" class="post-form">
+       <h1>新しい記事</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">投稿</button>
+    </form>
+{% endblock %}
