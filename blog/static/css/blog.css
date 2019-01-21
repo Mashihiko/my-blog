@@ -158,8 +158,9 @@ div.post:first-child{
  margin:10px;
 }
 
-
-
+div.logout{
+ padding-left: 1400px;
+}
 /*
 a span{
 bottom:0;

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+<section class="common-form">
+    {% if form.errors %}
+    <p class="error-msg">ユーザー名とパスワードが間違っています</p>
+    {% endif %}
+
+    {% if next %}
+    {% if user.is_authenticated %}
+    <p class="error-msg">あなたのアカウントではアクセスできません</p>
+    {% else %}
+    <p class="error-msg">このページを見るにはログインしてください</p>
+    {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit">ログイン</button>
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+</section>
+{% endblock %}

@@ -12,9 +12,10 @@
        <div class='fixed'>
         <div class="page-header">
             <h1><a href="/"  style="text-decoration:none;">Django Boys Blog</a></h1>
+            <div class="logout"><a href="{% url 'logout' %}">ログアウト</a></div>
         </div>
         <ul id="nav"   style="text-decoration:none;" >
-             <li><a href="{% url 'post_list' %}" >記事一覧</a></li>
+             <li><a href="{% url 'blog:post_list' %}" >記事一覧</a></li>
              <li><a href="#">人気ランキング</a></li>
              <li><a href="#">記事の編集</a></li>
              <li><a href="#">このサイトについて</a></li>
