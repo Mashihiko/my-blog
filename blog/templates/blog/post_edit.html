@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <form method="POST" class="post-form">
+    <form method="POST" class="post-form" enctype="multipart/form-data">
        <h1>新しい記事</h1>
         {% csrf_token %}
         {{ form.as_p }}

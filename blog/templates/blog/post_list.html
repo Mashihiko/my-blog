@@ -1,14 +1,35 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+        <div class="category">
+           <a class="link" href="{% url 'blog:post_category_programming' %}">
+           <span class="box">  
+              <img src="/static/raspi.jpg">
+              <span class="text">Programming</span>
+           </span>
+           </a>
+           <a class="link" href="{% url 'blog:post_category_cooking' %}">
+           <span class="box">
+              <img src="/static/tea.jpg">
+              <span class="text">Cooking</span>
+           </span>
+           </a>
+           <span class="box">
+              <img src="/static/real_face.jpg">
+              <span class="text">About Me</span>
+           </span>
+        </div>
+        <!---<a class="new-post">記事一覧</a>--->
+        <div class="main-posts">
         {% for post in posts %}
-              <div class="post">
-                <h2><a href="{% url 'blog:post_detail' pk=post.pk %}"  style="text-decoration:none;">{{ post.title }}</a></h2></br>
-                <p id="text">{{ post.text|linebreaksbr }}</p></br>
-                <p>公開日: {{ post.published_date }}</p>
+          <div class="bigpost">              
+             <div class="post">
+                <h2><a id="title" href="{% url 'blog:post_detail' pk=post.pk %}"  style="text-decoration:none;">{{ post.title }}</a></h2></br>
+                <p class="text"><span class="category__icon">{{ post.category }}</span><a class="print_date">{{ post.published_date }}</a></p>
+                {% if post.photo %}
+                   <img src="{{ post.photo.url }}"/> 
+                {% endif %}
               </div>
+          </div>
         {% endfor %}
-        <div id="plus-botton">
-                   <a href="{% url 'blog:post_new' %}" class="top-menu">
-                   <span class="glyphicon glyphicon-plus-sign black" title="記事を追加します"></span></a>
         </div>
 {% endblock %}

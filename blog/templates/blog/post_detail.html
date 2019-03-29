@@ -7,7 +7,12 @@
                <a class="btn btn-default" <!---href="{% url 'blog:post_delete' pk=post.pk %}--->">
                <span class="glyphicon glyphicon-trash"title="この記事を削除します"></span></a>
                <p id="pb_date">公開日: {{ post.published_date }}</p>
-               <h2 id=title>{{ post.title }}</h2> 
+               <h2 id=title>{{ post.title }}</h2>
+               <p>カテゴリー:{{ post.category }}</p>
+               {% if post.photo %}
+                   <div><img src="{{ post.photo.url }}"></div>
+                {% endif %}
+               </br>
                <p id="text">{{ post.text|linebreaksbr }}</p>
                <div id="hide_block">
                    <h3 id="trash_check">この記事を本当に削除しますか?</h3>

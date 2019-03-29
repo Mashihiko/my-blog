@@ -1,0 +1,89 @@
+<!-- 新レイアウト
+{% load static %}
+<html>
+    <head lang="ja">
+        <title>Django Boys blog</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/static/css/blog.css">
+        <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+        <script type="text/javascript" src='/static/js/sample.js'></script>
+    </head>
+<body>
+     <div class="white-header">
+        <ul>
+	   <li><a class="active" href="#home">About Me</a></li>
+	   <li><a href="#news">Contact</a></li>
+	   <li><a href="#about">Login</a></li>
+        </ul>
+     </div>
+ 
+
+     <div class="top-block">
+        <div id="top_pic">
+           <img src="static/pic1.jpg">
+           <div class="blog_name">Mashihiko's Blog</div>
+           <div class="sub_title">プログラミング、ゲーム、映画などを徒然なるままに</div>
+        </div>
+
+        <div class="category">
+           <span class="box">
+              <img src="static/raspi.jpg">
+              <div class="text">Programming</div>
+           </span>
+           <span class="box">
+              <img src="static/tea.jpg">
+              <span class="text">Column</span>
+           </span>
+           <span class="box">
+              <img src="static/real_face.jpg">
+              <span class="text">About Me</span>
+           </span>
+        </div>
+
+      </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+{% load static %}
+<html>
+    <head lang="ja">
+        <title>Django Boys blog</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/static/css/blog.css">
+        <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+        <script type="text/javascript" src='/static/js/sample.js'></script>
+    </head>
+
+    <body>
+       <div class='fixed'>
+        <div class="page-header">
+            <h1><a href="/"  style="text-decoration:none;">Django Boys Blog</a></h1>
+            <a href="{% url 'logout' %}">ログアウト</a>
+        </div>
+        <ul id="nav"   style="text-decoration:none;" >
+             <li><a href="{% url 'blog:post_list' %}" >記事一覧</a></li>
+             <li><a href="#">人気ランキング</a></li>
+             <li><a href="#">記事の編集</a></li>
+             <li><a href="#">このサイトについて</a></li>
+            </ul>
+        </div>
+        <div>
+        {% block content %}
+        {% endblock %}
+        </div>
+    </body>
+</html>
+
+-->
