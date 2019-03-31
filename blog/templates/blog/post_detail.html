@@ -2,10 +2,12 @@
 
 {% block content %}
             <div class="post-detail">
+               {% if user.is_authenticated %}
                <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}">
                <span class="glyphicon glyphicon-pencil"title="この記事を編集します"></span></a>
                <a class="btn btn-default" <!---href="{% url 'blog:post_delete' pk=post.pk %}--->">
                <span class="glyphicon glyphicon-trash"title="この記事を削除します"></span></a>
+               {% endif %}         
                <p id="pb_date">公開日: {{ post.published_date }}</p>
                <h2 id=title>{{ post.title }}</h2>
                <p>カテゴリー:{{ post.category }}</p>

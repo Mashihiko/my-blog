@@ -16,12 +16,12 @@ def post_detail(request, pk):
     post=get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post':post})
 
-@login_required
+#@login_required
 def post_category_programming(request):
    posts=Post.objects.filter(category__contains="プログラミング").order_by('-published_date')
    return render(request, 'blog/post_list.html', {'posts': posts})
 
-@login_required
+#@login_required
 def post_category_cooking(request):
    posts=Post.objects.filter(category__contains="料理").order_by('-published_date')
    return render(request, 'blog/post_list.html', {'posts': posts})
