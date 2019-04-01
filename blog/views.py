@@ -26,6 +26,9 @@ def post_category_cooking(request):
    posts=Post.objects.filter(category__contains="料理").order_by('-published_date')
    return render(request, 'blog/post_list.html', {'posts': posts})
 
+#@login_required
+def post_aboutme(request):
+   return render(request, 'blog/about_me.html', {})
 
 """
 @login_required #写真投稿機能をつける前までに動いていたpost_new

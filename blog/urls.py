@@ -8,6 +8,7 @@ urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/プログラミング/', views.post_category_programming, name='post_category_programming'),
     path('post/料理/', views.post_category_cooking, name='post_category_cooking'),
+    path('post/about_me/', views.post_aboutme, name='post_aboutme'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),

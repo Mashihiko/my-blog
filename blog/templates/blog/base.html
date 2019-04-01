@@ -2,7 +2,7 @@
 {% load static %}
 <html>
     <head lang="ja">
-        <title>Django Boys blog</title>
+        <title>Mashihiko's Blog</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -13,8 +13,8 @@
 <body>
      <div class="white-header">
         <ul>
-	   <li><a class="active" href="#home">About Me</a></li>
-	   <li><a href="#news">Contact</a></li>
+	   <li><a class="active" href="{% url 'blog:post_aboutme' %}">About Me</a></li>
+	   <!---<li><a href="#news">Contact</a></li>--->
            <li><a href="/accounts/login/" class="top-menu">
                    <span class="glyphicon glyphicon-check black" title="ログイン/ログアウトします"></span></a></li> 
            <li><a href="{% url 'blog:post_new' %}" class="top-menu">
