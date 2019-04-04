@@ -3,7 +3,7 @@
 __pycache__
 myvenv
 db.sqlite3
-settings.py
+django.log
 /static
 media
 .DS_Store
