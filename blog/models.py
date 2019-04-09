@@ -2,6 +2,11 @@ from django.db import models
 
 from django.utils import timezone
 
+from markdownx.models import MarkdownxField
+
+from markdownx.utils import markdownify
+
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
@@ -17,7 +22,7 @@ class Post(models.Model):
 
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=10, default="プログラミング")
 
-    text = models.TextField()
+    text = MarkdownxField('本文', help_text='Markdown形式で書いてください。')
 
     created_date = models.DateTimeField(
             default=timezone.now)
@@ -33,3 +38,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def text_to_markdown(self):
+        return markdownify(self.text)

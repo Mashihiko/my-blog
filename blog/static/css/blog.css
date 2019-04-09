@@ -88,6 +88,7 @@ font-size: 35px;
 line-height: 25px;  
 }
 
+
 #top_pic .blog_name{
 position: absolute;
 width: 100%;
@@ -185,8 +186,19 @@ padding-top:30px;
 padding-left:30px;
 }
 
-.post-detail *, .post-form *{
+#pb_date, #title{
 color: black;
+}
+
+.category_text{
+color:white;
+}
+
+.post-form *{
+color:black;
+}
+.markdown-box{
+margin-top:20px;
 }
 
 #hide_block{
@@ -209,6 +221,11 @@ color:black;
 background-color:#F8F5F5;
 text-align:center;
 }
+
+pre{
+margin-right:10px;
+}
+
 
 .about_me_contents {
 margin-top:30px;
@@ -370,8 +387,14 @@ padding:10px;
 
 @media screen and (min-width: 1367px){
 /*大画面PC使用*/
-.post-form textarea, .post-form input, .post-form select {
+.post-form textarea, .post-form input, .post-form select{
     width: 60%;
+}
+
+pre{
+
+ width: 60%;
+ padding:10px;
 }
 
 #top_pic .sub_title{

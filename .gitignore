@@ -6,4 +6,5 @@ db.sqlite3
 django.log
 /static
 media
+local_settings.py
 .DS_Store

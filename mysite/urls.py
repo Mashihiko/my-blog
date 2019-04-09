@@ -25,10 +25,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('blog.urls', 'blog'),)),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('markdownx/', include('markdownx.urls')),
     #path('accounts/', include('accounts.urls')), # [追加]
 ]
+"""
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT
+)
 
 
+"""
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

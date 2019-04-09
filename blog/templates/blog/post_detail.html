@@ -10,12 +10,15 @@
                {% endif %}         
                <p id="pb_date">公開日: {{ post.published_date }}</p>
                <h2 id=title>{{ post.title }}</h2>
-               <p>カテゴリー:{{ post.category }}</p>
+               <p class="category_text"><span class="category__icon">{{ post.category }}</span></p>
                {% if post.photo %}
                    <div><img src="{{ post.photo.url }}"></div>
-                {% endif %}
+               {% endif %}
                </br>
-               <p id="text">{{ post.text|linebreaksbr }}</p>
+               <div class="markdown-box">
+               {{ post.text_to_markdown | safe }}
+               </div>
+               <!--<p id="text">{{ post.text|linebreaksbr }}</p> --->
                <div id="hide_block">
                    <h3 id="trash_check">この記事を本当に削除しますか?</h3>
                    <a id="yes_botton" 
