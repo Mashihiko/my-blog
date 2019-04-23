@@ -16,7 +16,7 @@
 <body>
      <div class="white-header">
         <ul>
-	   <li><a class="active" href="{% url 'blog:post_aboutme' %}">About Me</a></li>
+	   <li><a class="active" href="{% url 'blog:aboutme' %}">About Me</a></li>
 	   <!---<li><a href="#news">Contact</a></li>--->
            <li><a href="/accounts/login/" class="top-menu">
                    <span class="glyphicon glyphicon-check black" title="ログイン/ログアウトします"></span></a></li> 
@@ -36,37 +36,4 @@
 </html>
 
 
-<!--
 
-{% load static %}
-<html>
-    <head lang="ja">
-        <title>Django Boys blog</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="/static/css/blog.css">
-        <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
-        <script type="text/javascript" src='/static/js/sample.js'></script>
-    </head>
-
-    <body>
-       <div class='fixed'>
-        <div class="page-header">
-            <h1><a href="/"  style="text-decoration:none;">Django Boys Blog</a></h1>
-            <a href="{% url 'logout' %}">ログアウト</a>
-        </div>
-        <ul id="nav"   style="text-decoration:none;" >
-             <li><a href="{% url 'blog:post_list' %}" >記事一覧</a></li>
-             <li><a href="#">人気ランキング</a></li>
-             <li><a href="#">記事の編集</a></li>
-             <li><a href="#">このサイトについて</a></li>
-            </ul>
-        </div>
-        <div>
-
-
-    </body>
-</html>
-
--->

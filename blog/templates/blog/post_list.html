@@ -1,37 +1,40 @@
 {% extends 'blog/base.html' %}
 {% block content %}
         <div class="category">
-           <a class="link" href="{% url 'blog:post_category_programming' %}">
+           <a class="link" href="/category/7">
            <span class="box">  
               <img src="/static/raspi.jpg">
               <span class="text">Programming</span>
            </span>
            </a>
-           <a class="link" href="{% url 'blog:post_category_cooking' %}">
+           <a class="link" href="/category/8">
            <span class="box">
               <img src="/static/tea.jpg">
               <span class="text">Cooking</span>
            </span>
            </a>
-           <a class="link" href="{% url 'blog:post_aboutme' %}">
+           <a class="link" href="{% url 'blog:aboutme' %}" %}">
            <span class="box">
               <img src="/static/real_face.jpg">
               <span class="text">About Me</span>
            </span>
            </a>
         </div>
-        <!---<a class="new-post">記事一覧</a>--->
-        <div class="main-posts">
-        {% for post in posts %}
-          <div class="bigpost">              
+       
+        <div class="main">
+           <div class="before-posts">
+              <p class="category_data">{{ category_data }}</p>
+           </div>
+           <div class="main-posts">
+            {% for post in post_list %}              
              <div class="post">
-                <h2><a id="title" href="{% url 'blog:post_detail' pk=post.pk %}"  style="text-decoration:none;">{{ post.title }}</a></h2></br>
-                <p class="text"><span class="category__icon">{{ post.category }}</span><a class="print_date">{{ post.published_date }}</a></p>
+                <h2><a id="title" href="{% url 'blog:post_detail' pk=post.pk %}"  style="text-decoration:none;">{{ post.title }}</a></h2></br>     
+                <p class="text"><a href="{% url 'blog:post_category' post.category.pk %}"><span class="category__icon">{{ post.category }}</span></a><a class="print_date">{{ post.published_date }}</a></p>
                 {% if post.photo %}
                    <img src="{{ post.photo.url }}"/> 
                 {% endif %}
-              </div>
-          </div>
-        {% endfor %}
+            </div>
+            {% endfor %}
+            </div>
         </div>
-{% endblock %}
+        {% endblock %}

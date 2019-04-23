@@ -8,9 +8,8 @@
                <a class="btn btn-default" <!---href="{% url 'blog:post_delete' pk=post.pk %}--->">
                <span class="glyphicon glyphicon-trash"title="この記事を削除します"></span></a>
                {% endif %}         
-               <p id="pb_date">公開日: {{ post.published_date }}</p>
                <h2 id=title>{{ post.title }}</h2>
-               <p class="category_text"><span class="category__icon">{{ post.category }}</span></p>
+               <p class="text"><span class="category__icon">{{ post.category }}</span><a class="print_date">{{ post.published_date }}</a></p>
                {% if post.photo %}
                    <div><img src="{{ post.photo.url }}"></div>
                {% endif %}

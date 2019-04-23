@@ -47,6 +47,7 @@ width:100%;
 background-color: #F8F5F5;
 /*padding-left:253px;*/
 text-align: center;
+width:100%;
 }
 
 .box{
@@ -113,12 +114,13 @@ line-height: 15px;
 }
 
 .bigpost{
-display: inline-block;
+/*display: inline-block;*/
+display: flex;
 }
 
 .post{
-/*text-align: center;*/
-padding-left:30px;
+text-align: center;
+padding-right:30px;/*
 padding-top:30px;
 padding-bottom:10px;
 width:500px;
@@ -133,9 +135,24 @@ font-size:20px;
 
 }
 
+.before-posts{
+padding-top:50px;
+padding-bottom:50px;
+}
 
+.category_data{
+font-size:25px;
+}
+
+.main{
+padding-left:200px;
+
+}
 .main-posts{
 text-align: center;
+display: flex;
+flex-wrap:wrap;
+padding-left:0px;
 margin-bottom:30px;
 /*background-color: #F8F5F5;*/
 }
@@ -186,7 +203,7 @@ padding-top:30px;
 padding-left:30px;
 }
 
-#pb_date, #title{
+#pb_date, #title, .print_date{
 color: black;
 }
 
@@ -253,7 +270,31 @@ padding-right:10px;
 @media screen and (max-width: 480px) { 
 
 /* スマホ縦 */
-.box img {
+.main-posts{
+justify-content: center;
+padding-left:0px;
+/*background-color: #F8F5F5;*/
+}
+
+.main{
+padding:0px;
+}
+
+.category_data{
+text-align:center;
+}
+
+.before-posts{
+padding-left:30px;
+}
+
+.category_data{
+font-size:15px;
+
+}
+
+
+.box img, .category_data {
 width:90%;
 padding-left: 10px;
 padding-right:10px;
@@ -278,21 +319,20 @@ line-height: 12px;
 
 width:100%;
 height: auto;
-padding-left:0px;
-
+padding: 0px;
 }
 
 .post-detail{
 padding:15px;
 }
 .post img, .post-detail img{
-width: 300px;
+width: 90%;
 height: auto;
 }
 
 p.title{
 padding-top:10px;
-padding-bottom:10px;
+padding-bottom:5px;
 font-weight: bold;
 }
 .about_me_contents {
@@ -319,7 +359,11 @@ padding-bottom:15px;
 .box .text {
 font-size:22px;
 }
-
+.main-posts{
+justify-content: center;
+padding-left:0px;
+/*background-color: #F8F5F5;*/
+}
 .box img {
 width:30%;
 height:auto;
@@ -343,7 +387,10 @@ line-height: 12px;
 
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
 /*iPad横*/
-
+.main-posts{
+padding-left:0px;
+/*background-color: #F8F5F5;*/
+}
 .box .text { 
 font-size:37px;
 }

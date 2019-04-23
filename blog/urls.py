@@ -2,13 +2,16 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 from django.views.generic import TemplateView
-#namespace = 'blog' 
+from blog.views import AboutMe_TemplateView, PostListView, CategoryListView
+#namespace = 'blog'
 
 urlpatterns = [
-    path('', views.post_list, name='post_list'),
-    path('post/プログラミング/', views.post_category_programming, name='post_category_programming'),
-    path('post/料理/', views.post_category_cooking, name='post_category_cooking'),
-    path('post/about_me/', views.post_aboutme, name='post_aboutme'),
+    #path('', views.post_list, name='post_list'),
+    path('', PostListView.as_view(), name="post_list"),
+    path('category/<int:pk>', CategoryListView.as_view(), name="post_category"),
+    path('post/programmming/', views.post_category_programming, name='post_category_programming'),
+    path('post/cooking/', views.post_category_cooking, name='post_category_cooking'),
+    path('post/about_me/', views.AboutMe_TemplateView.as_view(), name='aboutme'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
