@@ -1,23 +1,23 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+         <div class="parents-post-detail">
             <div class="post-detail">
                {% if user.is_authenticated %}
-               <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}">
-               <span class="glyphicon glyphicon-pencil"title="この記事を編集します"></span></a>
-               <a class="btn btn-default" <!---href="{% url 'blog:post_delete' pk=post.pk %}--->">
-               <span class="glyphicon glyphicon-trash"title="この記事を削除します"></span></a>
+                  <a class="btn btn-default" href="{% url 'blog:post_edit' pk=post.pk %}">
+                  <span class="glyphicon glyphicon-pencil"title="この記事を編集します"></span></a>
+                  <a class="btn btn-default" <!---href="{% url 'blog:post_delete' pk=post.pk %}--->">
+                  <span class="glyphicon glyphicon-trash"title="この記事を削除します"></span></a>
                {% endif %}         
                <h2 id=title>{{ post.title }}</h2>
-               <p class="text"><span class="category__icon">{{ post.category }}</span><a class="print_date">{{ post.published_date }}</a></p>
+               <p class="text"><a href="{% url 'blog:post_category' category=post.category %}"><span class="category__icon">{{ post.category }}</span></a><a class="print_date">{{ post.published_date }}</a></p>
                {% if post.photo %}
                    <div><img src="{{ post.photo.url }}"></div>
                {% endif %}
                </br>
-               <div class="markdown-box">
-               {{ post.text_to_markdown | safe }}
-               </div>
-               <!--<p id="text">{{ post.text|linebreaksbr }}</p> --->
+               <p class="markdown-box">
+                   {{ post.text_to_markdown | safe}}
+               </p>
                <div id="hide_block">
                    <h3 id="trash_check">この記事を本当に削除しますか?</h3>
                    <a id="yes_botton" 
@@ -25,14 +25,5 @@
                    <a id="no_botton">いいえ</a>
                </div>
             </div>
+         </div>
 {% endblock %}
-
-
-
-
-
-
-
-<!--- <input type="button" id="yes_botton"
-                   onclick="location.href='{% url 'post_delete' pk=post.pk %}'" value="はい">
-                   <input type="button" id="no_botton" value="いいえ"> --->

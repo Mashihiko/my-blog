@@ -12,11 +12,12 @@ from django.views.generic import TemplateView, ListView, DetailView
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
-
+"""
 #@login_required
 def post_detail(request, pk):
     post=get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post':post})
+"""
 
 #@login_required
 def post_category_programming(request):
@@ -32,6 +33,19 @@ def post_category_cooking(request):
 class AboutMe_TemplateView(TemplateView):
    template_name="blog/about_me.html"
 
+class PostDetailView(DetailView):
+
+   model=Post
+   template_name="blog/post_detail.html"
+
+   """
+   slug_field = "title"
+   slug_url_kwarg = "title"
+   """
+
+   def get_queryset(self):
+        categorytest=get_object_or_404(Category, category=self.kwargs['category'])
+        return Post.objects.filter(category=categorytest).order_by('-published_date')
 
 class PostListView(ListView):
    model=Post
@@ -50,20 +64,23 @@ class CategoryListView(ListView):
    model=Post
    template_name="blog/post_list.html"
 
-   def get_queryset(self):
-       category=get_object_or_404(Category, pk=self.kwargs['pk'])
-       return Post.objects.filter(category_id=category).order_by('-published_date')
+   slug_url_kwarg="category"
+   slug_field = "category"
 
+   def get_queryset(self):
+       categorytest=get_object_or_404(Category, category=self.kwargs['category'])
+       return Post.objects.filter(category=categorytest).order_by('-published_date')
+
+"""
    def get_context_data(self, **kwargs):
-        category=get_object_or_404(Category, pk=self.kwargs['pk'])
+        category=get_object_or_404(Category, category=self.kwargs['slug'])
         context = super().get_context_data(**kwargs) # はじめに継承元のメソッドを呼び出す
-        categories=Post.objects.filter(category_id=category).order_by('-published_date')
+        categories=Post.objects.filter(category=category).order_by('-published_date')
         #category_name=categories.category
-        context["category_data"] = str(category.name)+str("カテゴリーの投稿は")+str(len(categories))+str("件あります")
+        context["category_data"] = str(category.category)+str("カテゴリーの投稿は")+str(len(categories))+str("件あります")
         return context
 
-
-
+"""
 
 """
 class CategoryListView(ListView):
@@ -91,7 +108,7 @@ class PostDetailView(ListView):
         context = super().get_context_data(**kwargs) # はじめに継承元のメソッドを呼び出す
         context["foo"] = len(post)
         return context
-"""
+
 def get_category(request, pk):
    #categorys=Post.objects.all()
    category=get_object_or_404(Category, pk=pk)
@@ -105,7 +122,7 @@ def get_latest_post(self):
 def category_all(request):
     categorys=Category.objects.all()
     return render(request, 'blog/post_list.html', {'categorys': categorys})
-"""
+
 
 @login_required #写真投稿機能をつける前までに動いていたpost_new
 def post_new(request):

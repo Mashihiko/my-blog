@@ -8,10 +8,11 @@ from markdownx.utils import markdownify
 
 class Category(models.Model):
 
-   name=models.CharField(max_length=255)
+   category=models.CharField(max_length=255)
+
 
    def __str__(self):
-        return self.name
+        return self.category
 
    def get_latest_post(self):
         queryset = Post.objects.filter(
@@ -19,11 +20,10 @@ class Category(models.Model):
         return _get_latest_post(queryset)
 
 def get_or_create_curry_category():
-    category_list=["プログラミング", "料理", "映画"]
+    category_list=["プログラミング", "料理", "映画", "制作物"]
     for i in category_list :
-       category, _ = Category.objects.get_or_create(name=i )
+       category, _ = Category.objects.get_or_create(category=i )
     return category
-
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -62,11 +62,13 @@ class Post(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+
     """
     def __str__(self):
-        return self.category
-     """
+       return str(self.category)
+
+    """
     def text_to_markdown(self):
-        return markdownify(self.text)
+       return markdownify(self.text)
 
 

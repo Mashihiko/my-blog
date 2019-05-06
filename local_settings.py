@@ -1,6 +1,11 @@
 from mysite.settings import *
 DEBUG = True
+
+INSTALLED_APPS += ['debug_toolbar']
+
+
 SECRET_KEY = 'b+x@!a%rgmpw%s#5@f_xtc1i9i!@fn0ldcx!)2=)y7cs*3-_xj'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

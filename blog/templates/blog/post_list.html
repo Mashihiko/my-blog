@@ -13,7 +13,7 @@
               <span class="text">Cooking</span>
            </span>
            </a>
-           <a class="link" href="{% url 'blog:aboutme' %}" %}">
+           <a class="link" <!---href="{% url 'blog:aboutme' %}" --->%}">
            <span class="box">
               <img src="/static/real_face.jpg">
               <span class="text">About Me</span>
@@ -28,8 +28,8 @@
            <div class="main-posts">
             {% for post in post_list %}              
              <div class="post">
-                <h2><a id="title" href="{% url 'blog:post_detail' pk=post.pk %}"  style="text-decoration:none;">{{ post.title }}</a></h2></br>     
-                <p class="text"><a href="{% url 'blog:post_category' post.category.pk %}"><span class="category__icon">{{ post.category }}</span></a><a class="print_date">{{ post.published_date }}</a></p>
+                <h2><a id="title" href="{% url 'blog:post_detail' titletest=post.title %}"  style="text-decoration:none;">{{ post.title }}</a></h2></br>     
+                <p class="text"><a href="{% url 'blog:post_category' titletest=post.title category=post.category %}"><span class="category__icon">{{ post.category }}</span></a><a class="print_date">{{ post.published_date }}</a></p>
                 {% if post.photo %}
                    <img src="{{ post.photo.url }}"/> 
                 {% endif %}
